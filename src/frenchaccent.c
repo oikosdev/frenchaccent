@@ -22,15 +22,15 @@ int main(int argc, char* argv[])
   fclose(in);
   string[fsize] = 0;
   char *french;
-  textconverter_t *converter = textconverter_new ();
-  french = textconverter_convert (converter, "(.+) a (.+)", " \xc3\xa0 ", string); //"test a apportee, test a test again ajoutees et portee. ");
-  french = textconverter_convert (converter, "(.+)ee([,s;\\.].+)","\xc3\xa9\x65", french); 
+  text_t *converter = text_new ();
+  french = text_convert (converter, "(.+) a (.+)", " \xc3\xa0 ", string); //"test a apportee, test a test again ajoutees et portee. ");
+  french = text_convert (converter, "(.+)ee([,s;\\.].+)","\xc3\xa9\x65", french); 
   printf ("Done: %s\n", french);
   FILE *out = fopen(argv[2], "w");
   fprintf (out, "%s", french);
   fclose (out);
   free (french);
-  textconverter_destroy (&converter);
+  text_destroy (&converter);
  }
  return 0;
 }

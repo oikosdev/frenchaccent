@@ -57,7 +57,7 @@
         generate a skeletons for them.
         use private = "1" for internal classes
     -->
-    <class name = "textconverter">Text Converter</class>
+    <class name = "text">Text</class>
     <!--
         Main programs built by the project
                  use private = "1" for internal tools

@@ -42,7 +42,7 @@ typedef struct
 #define DECLARE_TEST(TEST) {#TEST, TEST}
 
 test_item_t all_tests [] = {
-    DECLARE_TEST(textconverter_test),
+    DECLARE_TEST(text_test),
     {0, 0} // Null terminator
 };
 

@@ -1,5 +1,5 @@
 /*  =========================================================================
-    textconverter - 
+    text - 
         Converts text without accents.
  
         
@@ -14,7 +14,7 @@
 
 /*
 @header
-    textconverter - 
+    text - 
         Converts text without accents.
  
         
@@ -26,18 +26,18 @@
 
 //  Structure of our class
 
-struct _textconverter_t {
+struct _text_t {
     int filler;     //  TODO: Declare properties
 };
 
 
 //  --------------------------------------------------------------------------
-//  Create a new textconverter.
+//  Create a new text.
 
-textconverter_t *
-textconverter_new ()
+text_t *
+text_new ()
 {
-    textconverter_t *self = (textconverter_t *) zmalloc (sizeof (textconverter_t));
+    text_t *self = (text_t *) zmalloc (sizeof (text_t));
     assert (self);
 
     //  TODO: Initialize properties
@@ -46,14 +46,14 @@ textconverter_new ()
 }
 
 //  --------------------------------------------------------------------------
-//  Destroy the textconverter.
+//  Destroy the text.
 
 void
-textconverter_destroy (textconverter_t **self_p)
+text_destroy (text_t **self_p)
 {
     assert (self_p);
     if (*self_p) {
-        textconverter_t *self = *self_p;
+        text_t *self = *self_p;
 
         //  TODO: Free class properties
 
@@ -66,7 +66,8 @@ textconverter_destroy (textconverter_t **self_p)
 
 //  --------------------------------------------------------------------------
 //  
-char* textconverter_convert(textconverter_t *self, char const *regex, char const *replace, const char *in) {
+
+char* text_convert(text_t *self, char const *regex, char const *replace, const char *in) {
  assert (self);
 
  zrex_t *rex = zrex_new (regex);
@@ -87,11 +88,12 @@ char* textconverter_convert(textconverter_t *self, char const *regex, char const
  return french;
 }
 
+
 //  --------------------------------------------------------------------------
-//  Print properties of the textconverter object.
+//  Print properties of the text object.
 
 void
-textconverter_print (textconverter_t *self)
+text_print (text_t *self)
 {
     assert (self);
 }
@@ -101,15 +103,15 @@ textconverter_print (textconverter_t *self)
 //  Self test of this class.
 
 void
-textconverter_test (bool verbose)
+text_test (bool verbose)
 {
-    printf (" * textconverter: ");
+    printf (" * text: ");
 
     //  @selftest
     //  Simple create/destroy test
-    textconverter_t *self = textconverter_new ();
+    text_t *self = text_new ();
     assert (self);
-    textconverter_destroy (&self);
+    text_destroy (&self);
     //  @end
 
     printf ("OK\n");

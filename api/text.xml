@@ -1,4 +1,4 @@
-    <class name = "textconverter" >
+    <class name = "text" >
         Converts text without accents.
  
         <include filename = "../license.xml" />
