@@ -1,0 +1,23 @@
+    <class name = "textconverter" >
+        Converts text without accents.
+ 
+        <include filename = "../license.xml" />
+        
+        <!-- Note: If no <constructor> is declared, an implicit one is created. -->
+        <constructor>
+        </constructor>
+        
+        <!-- Note: If no <destructor> is declared, an implicit one is created.
+            </destructor> -->
+
+        <method name = "convert">
+            <return type = "string" />
+        </method>
+        
+        <!-- Note: See zproject_class_api.gsl for all the type strings that
+            are supported for arguments and return values in C headers.
+            Not all of these are supported in all language bindings;
+            see each language binding's file for supported types in that
+            language, and add more types as needed where appropriate. -->
+
+</class>

@@ -1,0 +1,25 @@
+Name(7)
+=======
+
+
+NAME
+----
+frenchaccent - Add french accent to a text (written in french without accent)
+
+
+SYNOPSIS
+--------
+----
+#include <frenchaccent.h>
+
+cc ['flags'] 'files' -lfrenchaccent ['libraries']
+----
+
+
+DESCRIPTION
+-----------
+
+Classes
+~~~~~~~
+
+Something.
