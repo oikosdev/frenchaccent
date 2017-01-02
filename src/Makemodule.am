@@ -14,11 +14,11 @@ pkgconfig_DATA = src/libfrenchaccent.pc
 
 include_HEADERS = \
     include/frenchaccent.h \
-    include/textconverter.h \
+    include/text.h \
     include/frenchaccent_library.h
 
 src_libfrenchaccent_la_SOURCES = \
-    src/textconverter.c \
+    src/text.c \
     src/platform.h
 
 src_libfrenchaccent_la_CPPFLAGS = ${AM_CPPFLAGS}
@@ -57,7 +57,7 @@ endif
 # Install api files into /usr/local/share/zproject
 apidir = @datadir@/zproject/frenchaccent
 dist_api_DATA = \
-    api/textconverter.xml
+    api/text.xml
 
 # define custom target for all products of /src
 src: src/libfrenchaccent.la src/frenchaccent_selftest

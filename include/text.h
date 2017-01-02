@@ -22,7 +22,7 @@ extern "C" {
 //  @interface
 //  Create a new text.
 FRENCHACCENT_EXPORT text_t *
-    text_new ();
+    text_new (const char *input);
 
 //  Destroy the text.
 FRENCHACCENT_EXPORT void
@@ -30,7 +30,7 @@ FRENCHACCENT_EXPORT void
 
 //  
 FRENCHACCENT_EXPORT char *
-    text_convert (text_t *self, char const *regex, char const *replace, const char *in);
+    text_addaccents (text_t *self, char const *regex, char const *replace, const char *in);
 
 //  Print properties of the text object.
 FRENCHACCENT_EXPORT void

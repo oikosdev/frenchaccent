@@ -28,6 +28,7 @@
 
 struct _text_t {
     int filler;     //  TODO: Declare properties
+    char *french;
 };
 
 
@@ -35,13 +36,14 @@ struct _text_t {
 //  Create a new text.
 
 text_t *
-text_new ()
+text_new (const char *input)
 {
     text_t *self = (text_t *) zmalloc (sizeof (text_t));
     assert (self);
 
     //  TODO: Initialize properties
-
+    assert (input);
+    assert (asprintf (&(self->french), "%s", input) > -1);
     return self;
 }
 
@@ -67,25 +69,24 @@ text_destroy (text_t **self_p)
 //  --------------------------------------------------------------------------
 //  
 
-char* text_convert(text_t *self, char const *regex, char const *replace, const char *in) {
+char* text_addaccents(text_t *self, char const *regex, char const *replace, const char *in) {
  assert (self);
 
  zrex_t *rex = zrex_new (regex);
- char *french;
  const char *after;
  // init: french gets in
- assert (asprintf (&french, "%s", in) > -1);
+ assert (asprintf (&(self->french), "%s", self->french) > -1);
  // as long as there is a match in french
- while ( zrex_matches (rex, french)) {
-  const char* fetch = french;
+ while ( zrex_matches (rex, self->french)) {
+  const char* fetch = self->french;
   zrex_fetch (rex, &fetch, &after, NULL);
   printf ("fetched: %s\n", fetch);
   printf ("after: %s\n", after);
-  assert (asprintf (&french, "%s%s%s", fetch, replace, after)>-1);
+  assert (asprintf (&(self->french), "%s%s%s", fetch, replace, after)>-1);
   printf ("Now = %s\n", fetch);
  }
- printf ("French: %s\n", french);
- return french;
+ printf ("French: %s\n", self->french);
+ return self->french;
 }
 
 
@@ -109,7 +110,7 @@ text_test (bool verbose)
 
     //  @selftest
     //  Simple create/destroy test
-    text_t *self = text_new ();
+    text_t *self = text_new ("je suis a la maison");
     assert (self);
     text_destroy (&self);
     //  @end

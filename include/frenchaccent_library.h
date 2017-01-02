@@ -47,12 +47,12 @@
 #endif
 
 //  Opaque class structures to allow forward references
-typedef struct _textconverter_t textconverter_t;
-#define TEXTCONVERTER_T_DEFINED
+typedef struct _text_t text_t;
+#define TEXT_T_DEFINED
 
 
 //  Public API classes
-#include "textconverter.h"
+#include "text.h"
 
 #endif
 /*

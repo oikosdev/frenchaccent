@@ -22,9 +22,9 @@ int main(int argc, char* argv[])
   fclose(in);
   string[fsize] = 0;
   char *french;
-  text_t *converter = text_new ();
-  french = text_convert (converter, "(.+) a (.+)", " \xc3\xa0 ", string); //"test a apportee, test a test again ajoutees et portee. ");
-  french = text_convert (converter, "(.+)ee([,s;\\.].+)","\xc3\xa9\x65", french); 
+  text_t *converter = text_new (string);
+  french = text_addaccents (converter, "(.+) a (.+)", " \xc3\xa0 ", string); //"test a apportee, test a test again ajoutees et portee. ");
+  french = text_addaccents (converter, "(.+)ee([,s;\\.].+)","\xc3\xa9\x65", french); 
   printf ("Done: %s\n", french);
   FILE *out = fopen(argv[2], "w");
   fprintf (out, "%s", french);
